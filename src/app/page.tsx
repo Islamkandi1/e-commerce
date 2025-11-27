@@ -49,7 +49,8 @@ const page = () => {
                     </section>
                     <section className='image relative'>
                         <Image src={img} alt="main image" />
-                        <Image className='w-[60px]   sm:w-[90px] absolute top-[50px] right-5 sm:right-[100px] md:right-5 lg:right-[100px]' src={star} alt="star" />
+                        <Image className='w-[90px]   absolute top-2.5 right-5 sm:right-[100px] md:right-5 lg:right-2.5 xl:right-20 xl:top-[100px]' src={star} alt="star" />
+                        <Image className='w-[60px]   absolute top-[100px] left-6 sm:top-[190px]  sm:left-[70px] md:top-[100px] md:left-[50px] xl:top-[300px]' src={star} alt="star" />
                     </section>
                 </section>
                 <section className='bg-black '>
@@ -64,7 +65,7 @@ const page = () => {
             {/* new products */}
             <NewArrivals />
             {/* categories */}
-            <main>
+            <main className='mb-11'>
                 <section className='mx-2 md:mx-15 bg-[#F2F0F1] rounded-2xl py-11 px-4'>
                     <h2 className='uppercase font-bold text-[2rem] md:text-[2.5rem] text-center mb-4'>BROWSE BY dress STYLE</h2>
                     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
@@ -79,7 +80,7 @@ const page = () => {
                         </section>
                         <section className='rounded-xl   overflow-hidden h-[200px] lg:h-[340px] relative'>
                             <Image src={men} alt="men category" className='object-cover w-full h-full' />
-                            <p className='absolute z-10 top-20 left-10 text-[2rem] lg:text-[3rem] capitalize font-bold'>formel</p>
+                            <p className='absolute z-10 top-20 left-10 text-[2rem] lg:text-[3rem] capitalize font-bold'>formal</p>
                         </section>
 
                         <section className='rounded-xl  lg:col-span-2 overflow-hidden h-[200px] lg:h-[340px] relative'>

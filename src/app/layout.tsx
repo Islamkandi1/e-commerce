@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "./_components/navbar/Navbar";
 import TanstackProvider from "./_components/tanstackProvider/TanstackProvider";
 import { Toaster } from "react-hot-toast";
+import Footer from "./_components/footer/Footer";
 
 
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Toaster/>
           <Navbar />
           {children}
+          <Footer/>
         </TanstackProvider>
       </body>
     </html>

@@ -1,65 +1,68 @@
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link';
+import Image from 'next/image';
+import img from "./../assets/images/hero.png"
+import star from "./../assets/images/star.png"
+import brand1 from "./../assets/images/brand1.png"
+import brand2 from "./../assets/images/brand2.png"
+import brand3 from "./../assets/images/brand3.png"
+import brand4 from "./../assets/images/brand4.png"
+const NewArrivals = React.lazy(() => import("./_components/newArrivals/NewArrivals"));
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+const page = () => {
+    return (
+        <>
+            {/* hero section */}
+            <main className=' bg-[#F2F0F1] mb-10 relative top-16 md:static'>
+                <section className='mx-2 md:mx-15 pt-20 md:flex mn-h-screen justify-between items-center'>
+                    {/* content */}
+                    <section className='content grow'>
+                        {/* text */}
+                        <section className='mb-8'>
+                            <h1 className='uppercase text-[2.3rem] lg:text-[64px] md:mb-6 mb-[1.3rem] font-extrabold leading-9 lg:leading-17 '>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
+                            <p className='text-[#0000007f] text-[.9rem] lg:text-[1rem] capitalize mb-6 max-w-[560px]'>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
+                            <Link href="/products">
+                                <button type="button" className='capitalize cursor-pointer hover:bg-[#353535] transition-all duration-300 bg-black text-white px-14 py-4 w-full rounded-[62px] text-[1rem] md:w-fit'>
+                                    shop now
+                                </button>
+                            </Link>
+                        </section>
+                        {/* rate */}
+                        <section className='text-center flex flex-wrap md:flex-nowrap  justify-center md:justify-start gap-7' >
+                            <section >
+                                <h2 className='text-[2.2rem] md:text-[1.3rem] lg:text-[2.2rem] font-bold'>200+</h2>
+                                <p className='text-[#0000008d] md:text-[.8rem] lg:text-[1rem] capitalize'>International Brands</p>
+                            </section>
+                            <section >
+                                <h2 className='text-[2.2rem] md:text-[1.3rem] lg:text-[2.2rem] font-bold'>2,000+</h2>
+                                <p className='text-[#0000008d] md:text-[.8rem] lg:text-[1rem] capitalize'>High-Quality Products</p>
+                            </section>
+                            <section >
+                                <h2 className='text-[2.2rem] md:text-[1.3rem] lg:text-[2.3rem] font-bold'>30,000+</h2>
+                                <p className='text-[#0000008d] md:text-[.8rem] lg:text-[1rem] capitalize'>Happy Customers</p>
+                            </section>
+                        </section>
+                    </section>
+                    <section className='image relative'>
+                        <Image src={img} alt="main image" />
+                        <Image className='w-[60px]   sm:w-[90px] absolute top-[50px] right-5 sm:right-[100px] md:right-5 lg:right-[100px]' src={star} alt="star" />
+                    </section>
+                </section>
+                <section className='bg-black '>
+                    <section className=' flex flex-wrap justify-between items-center gap-5  mx-2 md:mx-15 py-8'>
+                        <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
+                        <Image className='w-[100px] md:w-[150px]' src={brand2} alt="zera" />
+                        <Image className='w-[100px] md:w-[150px]' src={brand3} alt="gucci" />
+                        <Image className='w-[100px] md:w-[150px]' src={brand4} alt="prada" />
+                    </section>
+                </section>
+            </main>
+            {/* <SkeletonCard /> */}
+            {/* new products */}
+                <NewArrivals />
+
+        </>
+    )
 }
+
+export default page

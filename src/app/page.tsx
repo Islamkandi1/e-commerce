@@ -7,6 +7,10 @@ import brand1 from "./../assets/images/brand1.png"
 import brand2 from "./../assets/images/brand2.png"
 import brand3 from "./../assets/images/brand3.png"
 import brand4 from "./../assets/images/brand4.png"
+import men from "./../assets/images/men.png"
+import women from "./../assets/images/women.png"
+import gym from "./../assets/images/gym.png"
+import kids from "./../assets/images/kids.jpg"
 const NewArrivals = React.lazy(() => import("./_components/newArrivals/NewArrivals"));
 
 const page = () => {
@@ -57,10 +61,35 @@ const page = () => {
                     </section>
                 </section>
             </main>
-            {/* <SkeletonCard /> */}
             {/* new products */}
-                <NewArrivals />
+            <NewArrivals />
+            {/* categories */}
+            <main>
+                <section className='mx-2 md:mx-15 bg-[#F2F0F1] rounded-2xl py-11 px-4'>
+                    <h2 className='uppercase font-bold text-[2rem] md:text-[2.5rem] text-center mb-4'>BROWSE BY dress STYLE</h2>
+                    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                        <section className='rounded-xl lg:col-span-2 overflow-hidden h-[200px] lg:h-[340px] relative'>
+                            <Image src={kids} alt="kids category" className='object-cover w-full h-full' />
+                            <p className='absolute z-10 top-20 left-[100px] text-[2rem] lg:text-[3rem] capitalize font-bold'>kids</p>
+                        </section>
 
+                        <section className='rounded-xl overflow-hidden h-[200px] lg:h-[340px] relative'>
+                            <Image src={gym} alt="kids category" className='object-cover w-full h-full' />
+                            <p className='absolute z-10 top-20 left-10 text-[2rem] lg:text-[3rem] capitalize font-bold'>gym</p>
+                        </section>
+                        <section className='rounded-xl   overflow-hidden h-[200px] lg:h-[340px] relative'>
+                            <Image src={men} alt="men category" className='object-cover w-full h-full' />
+                            <p className='absolute z-10 top-20 left-10 text-[2rem] lg:text-[3rem] capitalize font-bold'>formel</p>
+                        </section>
+
+                        <section className='rounded-xl  lg:col-span-2 overflow-hidden h-[200px] lg:h-[340px] relative'>
+                            <Image src={women} alt="women category" className='object-cover w-full h-full' />
+                            <p className='absolute z-10 top-20 left-10 text-[2rem] lg:text-[3rem] capitalize font-bold'>women</p>
+                        </section>
+
+                    </section>
+                </section>
+            </main>
         </>
     )
 }

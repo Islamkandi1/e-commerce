@@ -28,8 +28,9 @@ const Footer = () => {
                 </section>
                 {/* logo */}
             </section>
+            {/* copy rights */}
             <section className='p-5'>
-                <p className='text-[#0000009c] text-center capitalize'>© 2000-2021, All rights reserved by islam kandil</p>
+                <p className='text-[#0000009c] text-center capitalize'>© 2025-2030, All rights reserved by islam kandil</p>
             </section>
             </section>
         </main>

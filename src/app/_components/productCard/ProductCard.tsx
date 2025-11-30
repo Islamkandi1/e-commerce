@@ -2,13 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import { Heart } from 'lucide-react'
 import { product } from '@/types/product.type'
+import Link from 'next/link'
 const ProductCard = ({ product }: { product: product }) => {
 
 
 
     return (
         <>
-            <section className='w-full rounded-2xl overflow-hidden shadow-2xl '>
+            <Link href={`/productDetails/${product.id}`} className='w-full rounded-2xl overflow-hidden shadow-2xl '>
                 <figure className='p-4 flex justify-center items-center bg-[#F3F0F1] relative'>
                     <Image width={500} height={500} src={product.image} alt={product.productName} className='h-[300px] object-cover' />
                     <button type="button" className='absolute right-5 top-5 cursor-pointer hover:text-[#353535] transition-all duration-300'>
@@ -34,7 +35,7 @@ const ProductCard = ({ product }: { product: product }) => {
                         <button type='button' className='bg-black rounded-2xl hover:bg-[#353535] transition-all duration-300 cursor-pointer capitalize text-white px-5 py-2'>buy now</button>
                     </section>
                 </figcaption>
-            </section>
+            </Link>
         </>
     )
 }

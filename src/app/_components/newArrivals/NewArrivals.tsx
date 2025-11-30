@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import ProductCard from '../productCard/ProductCard'
 import { product } from '@/types/product.type'
-import { SkeletonCard } from '@/common/Skeleton'
+import { SkeletonCard } from '@/loadings/Skeleton'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 

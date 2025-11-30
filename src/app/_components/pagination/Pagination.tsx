@@ -1,5 +1,6 @@
 "use client"
 import { PageInfo } from '@/types/product.type';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React, { useEffect } from 'react';
 
 export default function MyPagination({ data, setCurrentPage, currentPage }: { data: PageInfo, setCurrentPage: (page: number) => void, currentPage: number }) {
@@ -70,17 +71,16 @@ export default function MyPagination({ data, setCurrentPage, currentPage }: { da
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className={`px-4 py-2 rounded-md font-medium transition-all ${currentPage === 1
+          className={`px-3 cursor-pointer py-2 rounded-md font-medium transition-all ${currentPage === 1
             ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
             : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
             }`}
         >
-          Previous
+          <ChevronLeft />
         </button>
 
         {/* Page Numbers */}
         {getPageNumbers().map((page, index) => {
-          console.log(page);
 
           return <section key={index}>
             {page === '...' ? (
@@ -88,7 +88,7 @@ export default function MyPagination({ data, setCurrentPage, currentPage }: { da
             ) : (
               <button
                 onClick={() => handlePageChange(page as number)}
-                className={`px-4 py-2 rounded-md font-medium transition-all ${currentPage === page
+                className={`px-3 cursor-pointer py-2 rounded-md font-medium transition-all ${currentPage === page
                   ? 'bg-black text-white shadow-md'
                   : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
                   }`}
@@ -105,12 +105,12 @@ export default function MyPagination({ data, setCurrentPage, currentPage }: { da
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded-md font-medium transition-all ${currentPage === totalPages
+          className={`px-3 cursor-pointer py-2 rounded-md font-medium transition-all ${currentPage === totalPages
             ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
             : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
             }`}
         >
-          Next
+         <ChevronRight />
         </button>
       </section>
     </section>

@@ -13,12 +13,13 @@ const NewArrivals = () => {
     // cash data=========================================================
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["products"],
-        queryFn: getAllProducts
+        queryFn: () => getAllProducts()
     })
     // error handle=======================================================
     if (isError) {
         toast.error(error.message)
     }
+    
     return (
         <main>
             <section className='mx-2 md:mx-15 py-8'>

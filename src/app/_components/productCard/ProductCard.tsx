@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Heart } from 'lucide-react'
 import { product } from '@/types/product.type'
 const ProductCard = ({ product }: { product: product }) => {
-    
-    
+
+
 
     return (
         <>
@@ -22,16 +22,15 @@ const ProductCard = ({ product }: { product: product }) => {
                         <p className='capitalize text-[#00000079] line-clamp-2'>{product.description}</p>
                     </section>
                     {/* colors */}
-                    <section className='flex gap-3 items-center'>
+                    <section className='flex gap-2 items-center'>
                         {product.Colors.split(",").map((color, idx) => {
-                            console.log(`bg-${color}`);
-                            return <div key={idx} style={{background:color}} className={` w-5 h-5 rounded-full border border-gray-400`}></div>
+                            return <div key={idx} style={{ background: color }} className={` w-5 h-5 rounded-full border border-gray-400`}></div>
                         })}
 
                     </section>
                     {/* actions & price */}
                     <section className='flex items-center justify-between'>
-                        <h3 className='font-bold text-[1.3rem]'>$300</h3>
+                        <h3 className='font-bold text-[1.3rem]'>${product.price}</h3>
                         <button type='button' className='bg-black rounded-2xl hover:bg-[#353535] transition-all duration-300 cursor-pointer capitalize text-white px-5 py-2'>buy now</button>
                     </section>
                 </figcaption>

@@ -30,8 +30,16 @@ export default function MyPagination({ data, setCurrentPage, currentPage }: { da
       behavior: 'smooth'
     });
     setCurrentPage(page);
-    const newUrl = `${window.location.pathname}?page=${page}`;
-    window.history.pushState({ page }, '', newUrl);
+
+    const params = new URLSearchParams(window.location.search);
+
+
+    params.set("page", page.toString());
+
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+
+    window.history.pushState({ page }, "", newUrl);
   };
 
 
@@ -110,7 +118,7 @@ export default function MyPagination({ data, setCurrentPage, currentPage }: { da
             : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
             }`}
         >
-         <ChevronRight />
+          <ChevronRight />
         </button>
       </section>
     </section>

@@ -1,6 +1,7 @@
 "use client"
 import { Filter, X } from 'lucide-react'
 import React, { useState } from 'react'
+import SetFilter from '../setFilter/SetFilter'
 
 const Filteration = () => {
     const [filter, setFitler] = useState(
@@ -14,7 +15,7 @@ const Filteration = () => {
     const [showFilter, setShowFilter] = useState(false)
     // filter values=================================================
     const categories = ['men', 'women', 'kids'];
-    const brands = ['Nike', 'Adidas', 'Puma', 'Zara', 'H&M'];
+    const brands = ['nike', 'adidas', 'puma', 'zara', 'h&m'];
     const dressStyle = ["shirts", "t-shirts", "hoodies", "sweetshirts", "shorts", "jackets", "Jeans"]
     // set filter=====================================================
     function filteration(e: React.ChangeEvent<HTMLInputElement>) {
@@ -126,9 +127,7 @@ const Filteration = () => {
                         </section>
                     </section>
                     {/* Apply Filter Button */}
-                    <button onClick={() => showAndHideFilter(false)} className="w-full transition-all duration-300 cursor-pointer bg-black text-white py-3 rounded-full font-medium hover:bg-gray-800">
-                        Apply Filter
-                    </button>
+                            <SetFilter showAndHideFilter={showAndHideFilter} filter={filter} showFilter={showFilter}/>
                 </section>
             </section>
 

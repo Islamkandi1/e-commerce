@@ -7,12 +7,15 @@ import toast from 'react-hot-toast'
 import { SkeletonCard } from '@/common/Skeleton'
 import MyPagination from '../pagination/Pagination'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const ALlproduct = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const searchParams = useSearchParams();
+    const queryString = searchParams.toString();
     // cash data=========================================================
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["products", currentPage],
+        queryKey: ["products", currentPage,queryString],
         queryFn: () => getAllProducts()
     })
     // error handle=======================================================

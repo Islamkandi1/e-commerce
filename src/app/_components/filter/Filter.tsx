@@ -50,11 +50,12 @@ const Filteration = () => {
     return (
         <>
             <Filter className={`absolute md:hidden z-10 top-[-30px] right-5 cursor-pointer ${showFilter && "hidden"}`} onClick={() => showAndHideFilter(true)} />
-            <section className={`shadow-2xl p-5 rounded-2xl h-fit absolute right-0 left-0 top-0 bottom-0 z-20 bg-white md:static ${!showFilter && "hidden"} md:block`}>
+
+            <section className={`shadow-2xl p-5 rounded-2xl md:h-fit fixed overflow-auto right-0 left-0 z-20 top-20 bottom-2   bg-white md:static ${!showFilter && "hidden"} md:block`}>
                 <X className='absolute z-10 top-2.5  right-5 cursor-pointer md:hidden' onClick={() => showAndHideFilter(false)} />
                 <section className="space-y-6 ">
                     {/* Category */}
-                    <section className="border-b border-gray-200 pb-6">
+                    <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4">Category</h3>
                         <section className="space-y-2">
                             {categories.map((category) => (
@@ -72,7 +73,7 @@ const Filteration = () => {
                         </section>
                     </section>
                     {/* brands */}
-                    <section className="border-b border-gray-200 pb-6">
+                    <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4 capitalize">brands</h3>
                         <section className="space-y-2">
                             {brands.map((brand, idx) => (
@@ -90,7 +91,7 @@ const Filteration = () => {
                         </section>
                     </section>
                     {/* dressstyle */}
-                    <section className="border-b border-gray-200 pb-6">
+                    <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4 capitalize">dress style</h3>
                         <section className="space-y-2">
                             {dressStyle.map((dressStyle, idx) => (
@@ -130,6 +131,7 @@ const Filteration = () => {
                     </button>
                 </section>
             </section>
+
         </>
     )
 }

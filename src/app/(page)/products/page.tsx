@@ -8,7 +8,7 @@ const Products = () => {
         <>
             <main className='py-10'>
                 <section className='mx-2 md:mx-15 pt-18 relative'>
-
+                    {/* display data and filter */}
                     <section className='grid grid-cols-1 md:grid-cols-4 gap-9 relative'>
                         {/* filteration */}
                         <Filteration />
@@ -17,6 +17,7 @@ const Products = () => {
                             <ALlproduct />
                         </section>
                     </section>
+                        
                 </section>
             </main>
         </>

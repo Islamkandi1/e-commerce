@@ -1,7 +1,7 @@
 export interface product {
   Colors: string;
   Quantity: number;
-  brand:string;
+  brand: string;
   category: string;
   created_at: string;
   description: string;
@@ -10,4 +10,10 @@ export interface product {
   price: number;
   productName: string;
   subcategory: string;
+}
+export interface PageInfo {
+  limit: number;
+  page: number;
+  total: number;
+  totalPages: number;
 }

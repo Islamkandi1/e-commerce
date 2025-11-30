@@ -22,7 +22,7 @@ const ProductCard = ({ product }: { product: product }) => {
                         <p className='capitalize text-[#00000079] line-clamp-2'>{product.description}</p>
                     </section>
                     {/* colors */}
-                    <section className='flex gap-3 items-center'>
+                    <section className='flex gap-2 items-center'>
                         {product.Colors.split(",").map((color, idx) => {
                             console.log(`bg-${color}`);
                             return <div key={idx} style={{background:color}} className={` w-5 h-5 rounded-full border border-gray-400`}></div>

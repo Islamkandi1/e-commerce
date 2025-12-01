@@ -11,7 +11,7 @@ import men from "./../assets/images/men.png"
 import women from "./../assets/images/women.png"
 import gym from "./../assets/images/gym.png"
 import kids from "./../assets/images/kids.jpg"
-const NewArrivals = React.lazy(() => import("./_components/newArrivals/NewArrivals"));
+import NewArrivals from './_components/newArrivals/NewArrivals';
 
 const page = () => {
     return (
@@ -70,7 +70,7 @@ const page = () => {
                     <h2 className='uppercase font-bold text-[2rem] md:text-[2.5rem] text-center mb-4'>BROWSE BY dress STYLE</h2>
                     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                         <section className='rounded-xl lg:col-span-2 overflow-hidden h-[200px] lg:h-[340px] relative'>
-                            <Image src={kids} alt="kids category" className='object-cover w-full h-full' />
+                            <Image src={kids}   alt="kids category" className='object-cover w-full h-full' />
                             <p className='absolute z-10 top-20 left-[100px] text-[2rem] lg:text-[3rem] capitalize font-bold'>kids</p>
                         </section>
 

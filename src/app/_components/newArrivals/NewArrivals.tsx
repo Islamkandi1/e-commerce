@@ -13,13 +13,14 @@ const NewArrivals = () => {
     // cash data=========================================================
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["products"],
-        queryFn: () => getAllProducts()
+        queryFn: getAllProducts
     })
     // error handle=======================================================
+    
     if (isError) {
         toast.error(error.message)
     }
-    
+
     return (
         <main>
             <section className='mx-2 md:mx-15 py-8'>
@@ -43,7 +44,7 @@ const NewArrivals = () => {
                 </section>
                 {/* view more */}
                 <section className={`flex justify-center ${isLoading && "hidden"} `}>
-                <Link href="/products" className='px-12 py-2 border border-gray-300 rounded-3xl capitalize text-[1rem] text-white bg-[#000000] hover:bg-[#353535] transition-all duration-300'>view more</Link>
+                    <Link href="/products" className='px-12 py-2 border border-gray-300 rounded-3xl capitalize text-[1rem] text-white bg-[#000000] hover:bg-[#353535] transition-all duration-300'>view more</Link>
                 </section>
             </section>
         </main>

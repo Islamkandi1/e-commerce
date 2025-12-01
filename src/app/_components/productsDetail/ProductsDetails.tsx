@@ -2,9 +2,7 @@
 import getProductdetails from '@/apis/getProductDetails'
 import ProductDetailsSkeleton from '@/loadings/ProductDetailsSkeleton';
 import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 const ProductsDetails = ({ id }: { id: number }) => {
@@ -37,7 +35,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
                     {isLoading ? <ProductDetailsSkeleton /> : <section className="grid   grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Image Gallery */}
                         <section className=" gap-4 rounded-2xl bg-[#F2F0F1] p-3 overflow-hidden col-span-3 lg:col-span-1">
-                            <Image width={500} height={500} src={data?.image} alt={data?.productName} className='h-full object-cover w-full' />
+                            <Image width={500} height={500} priority={true} src={data?.image} alt={data?.productName} className='h-full object-cover w-full' />
                         </section>
 
                         {/* Product Info */}

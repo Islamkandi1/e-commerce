@@ -8,6 +8,7 @@ import { SkeletonCard } from '@/loadings/Skeleton'
 import MyPagination from '../pagination/Pagination'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Nodata from '../NoData/Nodata'
 
 const ALlproduct = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,34 +16,37 @@ const ALlproduct = () => {
     const queryString = searchParams.toString();
     // cash data=========================================================
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["products", currentPage,queryString],
+        queryKey: ["products", currentPage, queryString],
         queryFn: () => getAllProducts()
     })
     // error handle=======================================================
     if (isError) {
         toast.error(error.message)
     }
+    console.log(data?.data);
+
     return (
         <>
-        <section >
-            <section className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-4 mb-6'>
-                {/* display data */}
-                {isLoading && <>
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                    <SkeletonCard width={"w-full"} />
-                </>}
-                {data?.data?.map((product: product) => {
-                    return <ProductCard product={product} key={product.id} />
-                })}
+            {data?.data.length < 1 && <Nodata />}
+            <section >
+                <section className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-4 mb-6'>
+                    {/* display data */}
+                    {isLoading && <>
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                        <SkeletonCard width={"w-full"} />
+                    </>}
+                    {data?.data?.map((product: product) => {
+                        return <ProductCard product={product} key={product.id} />
+                    })}
+                </section>
+                {data?.data.length > 1 && <MyPagination data={data?.pageInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
             </section>
-            <MyPagination data={data?.pageInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        </section>
         </>
     )
 }

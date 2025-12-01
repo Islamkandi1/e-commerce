@@ -2,34 +2,38 @@
 import getProductdetails from '@/apis/getProductDetails'
 import ProductDetailsSkeleton from '@/loadings/ProductDetailsSkeleton';
 import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft, Minus, Plus } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 const ProductsDetails = ({ id }: { id: number }) => {
-    const router = useRouter()
     const { data, isLoading, error } = useQuery({
         queryKey: ["productDetails", id],
         queryFn: () => getProductdetails(id)
     });
-    console.log(data);
 
+    //  push category==========================================================
+
+    useEffect(() => {
+        if (data) {
+            const params = new URLSearchParams(window.location.search);
+            params.set("category", data.category);
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
+            window.history.pushState({}, "", newUrl);
+        }
+    }, [data]);
+    // handle error============================================================
     if (error) {
         toast.error(error.message)
     }
 
 
     return (
-        <main>
+        <main className='border-b border-gray-200'>
             <section className="min-h-screen bg-white pt-12">
-
                 {/* Product Section */}
-                <section className="mx-2 md:mx-15  px-4 sm:px-6 lg:px-8 py-12">
-
-                    <button onClick={() => router.back()} type="button" className="bg-[#000000] text-white px-3 py-2 rounded-xl capitalize mb-3 hover:bg-gray-800 transition-all duration-300 cursor-pointer flex items-center gap-2  ">
-                        <ArrowLeft />
-                        back
-                    </button>
+                <section className="mx-2 md:mx-15  px-4 sm:px-6 lg:px-8 pt-12 pb-5">
                     {isLoading ? <ProductDetailsSkeleton /> : <section className="grid   grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Image Gallery */}
                         <section className=" gap-4 rounded-2xl bg-[#F2F0F1] p-3 overflow-hidden col-span-3 lg:col-span-1">
@@ -79,4 +83,4 @@ const ProductsDetails = ({ id }: { id: number }) => {
     )
 }
 
-export default ProductsDetails
+export default React.memo(ProductsDetails)

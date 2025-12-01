@@ -3,6 +3,7 @@ import getBrands from '@/apis/getBrands'
 import { useQuery } from '@tanstack/react-query'
 import BrandsSkeleton from './../../../loadings/brandsSkeleton';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const GetBrands = () => {
     const { data, isLoading, isError, error } = useQuery({
@@ -59,9 +60,9 @@ if(isError){
 
                                     {/* Hover Overlay */}
                                     <section className={`absolute inset-0 bg-black/20 hover:backdrop-blur-sm transition-opacity duration-300 hover:opacity-100 opacity-0 flex items-center justify-center`}>
-                                        <button className="px-6 py-3 bg-white text-gray-900 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                        <Link href={`/brands/productBrands/${brand}`}  className="px-6 py-3 bg-white text-gray-900 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                                             Explore
-                                        </button>
+                                        </Link>
                                     </section>
                                 </section>
 

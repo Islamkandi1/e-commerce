@@ -78,7 +78,7 @@ export const Navbar = () => {
                         home
                     </Link>
                     <Link
-                        href="/product"
+                        href="/products"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         Product

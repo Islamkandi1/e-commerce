@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 const ProductsDetails = ({ id }: { id: number }) => {
-    const { data, isLoading, error } = useQuery({
+    const { data, isLoading,isError ,error } = useQuery({
         queryKey: ["productDetails", id],
         queryFn: () => getProductdetails(id)
     });
@@ -22,7 +22,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
         }
     }, [data]);
     // handle error============================================================
-    if (error) {
+    if (isError) {
         toast.error(error.message)
     }
 

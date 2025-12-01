@@ -1,10 +1,9 @@
 import { Skeleton } from '@/components/ui/skeleton'
-import React from 'react'
 
 const ProductDetailsSkeleton = () => {
     return (
         <>
-            <section className="grid   grid-cols-1 lg:grid-cols-3 gap-12">
+            <section className="grid  grid-cols-1 lg:grid-cols-3 gap-12">
                 {/* Image Gallery */}
                 <section className=" gap-4 rounded-2xl bg-[#F2F0F1] p-3 overflow-hidden col-span-3 lg:col-span-1">
                     <Skeleton className={`h-[400px] w-full rounded-xl bg-[#b3b0b1]`} />

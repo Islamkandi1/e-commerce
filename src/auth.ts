@@ -1,8 +1,9 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { supabaseServer } from "../supabase-server";
 import argon2 from "argon2";
-import { Session, User } from "next-auth";
+import { Account, Profile, Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
+import GoogleProvider from "next-auth/providers/google";
 export const authOption = {
   pages: {
     signIn: "/login",
@@ -49,10 +50,35 @@ export const authOption = {
         };
       },
     }),
+    // ----------------google--------------------------------------
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+    // ----------------facebook-----------------------------
   ],
 
   callbacks: {
-    async jwt({ token, user }: { token: JWT; user?: User }) {
+    async jwt({
+      token,
+      user,
+      account,
+      profile,
+    }: {
+      token: JWT;
+      user?: User;
+      account: Account;
+      profile?: Profile;
+    }) {
+      if (account && profile) {
+        token.email = profile.email ?? token.email;
+        token.firstName =
+          profile.given_name ?? profile.name?.split(" ")[0] ?? token.firstName;
+        token.lastName =
+          profile.family_name ??
+          profile.name?.split(" ").slice(1).join(" ") ??
+          token.lastName;
+      }
       if (user) {
         token.id = user.id;
         token.email = user.email;
@@ -62,7 +88,6 @@ export const authOption = {
       return token;
     },
     async session({ session, token }: { session: Session; token: JWT }) {
-
       if (token) {
         session.user.email = token.email as string;
         session.user.firstName = token.firstName as string;

@@ -1,4 +1,5 @@
 import Login from '@/app/_components/authForm/login/Login'
+import Oouth from '@/app/_components/Oouth/Oouth'
 import Link from 'next/link'
 import React from 'react'
 
@@ -36,15 +37,7 @@ const page = () => {
             <section className="flex-1 h-px bg-gray-300"></section>
           </section>
 
-          {/* Social Buttons */}
-          <section className="grid grid-cols-2 gap-4">
-            <button className="py-3 border-2 rounded-2xl  border-black bg-white hover:bg-black hover:text-white transition-all duration-300 font-semibold capitalize cursor-pointer text-sm tracking-wide">
-              Google
-            </button>
-            <button className="py-3 border-2 rounded-2xl  border-black bg-white hover:bg-black hover:text-white transition-all duration-300 font-semibold capitalize cursor-pointer text-sm tracking-wide">
-              Facebook
-            </button>
-          </section>
+        <Oouth/>
         </section>
       </section>
     </main>

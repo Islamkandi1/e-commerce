@@ -8,7 +8,10 @@ declare module "next-auth" {
       email: string;
     };
   }
-
+  interface Profile {
+    given_name?: string;
+    family_name?: string;
+  }
   interface User {
     id: string;
     firstName: string;

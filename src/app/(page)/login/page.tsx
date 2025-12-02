@@ -1,10 +1,11 @@
+import Login from '@/app/_components/authForm/login/Login'
 import Link from 'next/link'
 import React from 'react'
 
 const page = () => {
   return (
     <main className="pt-12">
-      <section className="min-h-screen mx-2 md:mx-15 bg-white flex items-center justify-center">
+      <section className="mx-2 md:mx-15 bg-white flex items-center justify-center">
         <section className="w-full md:w-[80%] lg:w-[70%] py-12">
           {/* Header */}
           <section className="text-center mb-8">
@@ -13,46 +14,11 @@ const page = () => {
           </section>
 
           {/* Form */}
-          <form className="space-y-5">
+          <Login/>
 
 
-            {/* Email */}
-            <section className='mb-4'>
-              <label htmlFor="email" className="block capitalize text-xs font-semibold tracking-wider mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-4 py-2 border-2 rounded-xl focus:scale-[1.02] border-black bg-white  transition-all"
-                required
-              />
-            </section>
 
-            {/* Password */}
-            <section className='mb-3'>
-              <label htmlFor="password" className="block capitalize text-xs font-semibold tracking-wider mb-2">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="w-full px-4 py-2 border-2 rounded-xl focus:scale-[1.02] border-black bg-white  transition-all"
-              />
-            </section>
 
-            {/* forget my password */}
-            <button className="text-sm text-black hover:underline font-medium">
-              Forgot password?
-            </button>
-            {/* Submit Button */}
-            <button
-              className="w-full rounded-2xl py-3 bg-black text-white font-bold capitalize tracking-widest cursor-pointer transition-all duration-300 hover:bg-[#353535] hover:rounded-4xl active:scale-98 mt-2"
-            >
-              signIn
-            </button>
 
             {/* Login Link */}
             <p className="text-center capitalize text-sm text-gray-600 flex items-center gap-2 justify-center">
@@ -61,7 +27,7 @@ const page = () => {
                 register
               </Link>
             </p>
-          </form>
+
 
           {/* sectionider */}
           <section className="flex items-center gap-4 my-8">

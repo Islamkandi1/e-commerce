@@ -73,7 +73,7 @@ const Login = () => {
                     control={form.control}
                     name="password"
                     render={({ field }) => (
-                        <FormItem className='mb-2'>
+                        <FormItem className='mb-4'>
                             <FormLabel className='capitalize' htmlFor='password'>password</FormLabel>
                             <FormControl>
                                 <input
@@ -88,10 +88,6 @@ const Login = () => {
                     )}
                 />
 
-                {/* forget my password */}
-                <button type="button" className="text-sm text-black hover:underline font-medium">
-                    Forgot password?
-                </button>
                 {/* Submit Button */}
                 <button
                     type="submit"

@@ -25,7 +25,7 @@ const NewArrivals = () => {
         <main>
             <section className='mx-2 md:mx-15 py-8'>
                 <h2 className='uppercase text-[2rem] md:text-[2.4rem] font-extrabold text-center mb-[1.4rem] '>NEW ARRIVALS</h2>
-                <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6'>
+                <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 mb-6'>
                     {/* loading */}
                     {isLoading && <>
                         <SkeletonCard width={"w-full"} />

@@ -41,7 +41,6 @@ export const authOption = {
           throw new Error("Invalid email or password");
         }
         // Return user if user is exist=========================================
-        console.log(user);
         return {
           id: user.id,
           email: user.email,

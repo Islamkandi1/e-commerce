@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react';
-import { ShoppingBag, Heart, Menu, X, User } from 'lucide-react';
+import { ShoppingBag, Heart, Menu, X,  LogOut } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-
+import { ScaleLoader } from 'react-spinners';
+import { signOut } from "next-auth/react";
 
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,16 +57,17 @@ export const Navbar = () => {
                     <Link href="/cart">
                         <ShoppingBag className="h-5 w-5" />
                     </Link>
-                    <User className="h-5 w-5" />
-
-                    <Button
-                        variant="ghost"
-                        size="icon"
+                    {/* <User className="h-6 w-6 cursor-pointer" /> */}
+                    <button onClick={()=> signOut({ callbackUrl: "/login" })} type="button" className="flex items-center gap-3 cursor-pointer hover:text-red-500 transition-all hover:translate-x-2 duration-300">
+                        <LogOut className="w-5 h-5"/>
+                    </button>
+                    <button
+                    type="button"
                         className="md:hidden cursor-pointer"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
-                        {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                    </Button>
+                        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                    </button>
                 </section>}
 
                 {/* unAuth action */}
@@ -87,6 +88,12 @@ export const Navbar = () => {
                         </Link>
                     </section>
                 </section>}
+                {/* loading */}
+                {status == "loading" && <ScaleLoader
+                    color="#000"
+                    height={20}
+                    width={2}
+                />}
 
             </section>
 

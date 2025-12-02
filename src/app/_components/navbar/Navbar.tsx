@@ -28,13 +28,13 @@ export const Navbar = () => {
                     </Link>
                     <Link
                         href="/products"
-                        className={`text-[.98rem] font-medium  hover:text-gray-500 transition-all duration-300 ${pathName == "/products" && "text-gray-500"}` }
+                        className={`text-[.98rem] font-medium  hover:text-gray-500 transition-all duration-300 ${pathName == "/products" && "text-gray-500"}`}
                     >
                         Products
                     </Link>
                     <Link
                         href="/brands"
-                        className={`text-[.98rem] font-medium  hover:text-gray-500 transition-all duration-300 ${pathName == "/brands" && "text-gray-500"}` }
+                        className={`text-[.98rem] font-medium  hover:text-gray-500 transition-all duration-300 ${pathName == "/brands" && "text-gray-500"}`}
                     >
                         Brands
                     </Link>
@@ -46,8 +46,9 @@ export const Navbar = () => {
                     </Link>
                 </section>
 
-                {/* Actions */}
-                <section className="flex items-center gap-4">
+                {/* auth Actions */}
+
+                {/* <section className="flex items-center gap-4">
                     <Link href="/favorites">
                         <Heart className="h-5 w-5" />
                     </Link>
@@ -55,7 +56,7 @@ export const Navbar = () => {
                         <ShoppingBag className="h-5 w-5" />
                     </Link>
                     <User className="h-5 w-5" />
-                    {/* Mobile Menu Toggle */}
+                   
                     <Button
                         variant="ghost"
                         size="icon"
@@ -64,7 +65,25 @@ export const Navbar = () => {
                     >   
                         {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </Button>
-                </section>
+                </section> */}
+                {/* unAuth action */}
+                <div>
+                    <div className="flex gap-3 flex-wrap">
+                        {/* Login Button */}
+                        <Link href="/login"
+                            className="px-3 py-1 rounded-xl  text-black hover:text-gray-500  font-medium capitalize  transition-all duration-300  active:scale-94"
+                        >
+                            signIn
+                        </Link>
+
+                        {/* Register Button */}
+                        <Link href="/register"
+                            className="px-3 py-1 rounded-xl bg-black text-white border border-black font-medium capitalize  transition-all duration-300 hover:bg-[#353535] hover:rounded-2xl active:scale-95"
+                        >
+                            register
+                        </Link>
+                    </div>
+                </div>
             </section>
 
             {/* Mobile Menu */}

@@ -55,6 +55,7 @@ const page = () => {
                 </section>
                 <section className='bg-black '>
                     <section className=' flex flex-wrap justify-between items-center gap-5  mx-2 md:mx-15 py-8'>
+                        {/* <h3 className='text-3xl text-white capitalize'>versace</h3> add slide of my brands Api */}
                         <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
                         <Image className='w-[100px] md:w-[150px]' src={brand2} alt="zera" />
                         <Image className='w-[100px] md:w-[150px]' src={brand3} alt="gucci" />

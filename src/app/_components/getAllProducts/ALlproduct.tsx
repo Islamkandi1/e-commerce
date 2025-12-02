@@ -23,7 +23,6 @@ const ALlproduct = () => {
     if (isError) {
         toast.error(error.message)
     }
-    console.log(data?.data);
 
     return (
         <>

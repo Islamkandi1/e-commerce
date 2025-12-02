@@ -14,7 +14,6 @@ import { signIn } from "next-auth/react"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import { ScaleLoader } from "react-spinners"
-
 const Login = () => {
     const [isLoading, setIsLoading] = useState(false)
     const form = useForm<LoginSchemaType>({
@@ -28,23 +27,25 @@ const Login = () => {
 
     // login=================================================
     async function login(values: LoginSchemaType) {
+
         setIsLoading(true)
-        const user  = await signIn("credentials", {
+        const user = await signIn("credentials", {
             email: values.email,
             password: values.password,
             redirect: false
         })
-        
+
         if (user?.ok) {
             toast.success("Login successfully")
             setTimeout(() => {
                 location.replace("/")
             }, 700);
         } else {
-            toast.error(user?.error  || "Something went wrong")
+            toast.error(user?.error || "Something went wrong")
         }
         setIsLoading(false)
     }
+
     return (
         <Form  {...form}>
             <form className="space-y-5" onSubmit={form.handleSubmit(login)}>
@@ -96,13 +97,13 @@ const Login = () => {
                     type="submit"
                     className="w-full mb-4 rounded-2xl py-3 bg-black text-white font-bold capitalize tracking-widest cursor-pointer transition-all duration-300 hover:bg-[#353535] hover:rounded-4xl active:scale-98 mt-2"
                 >
-                    {isLoading? <ScaleLoader
-                            color="#fff"
-                            height={20}
-                            width={3}
-                        /> : "signIn" }
-                      
-                    
+                    {isLoading ? <ScaleLoader
+                        color="#fff"
+                        height={20}
+                        width={3}
+                    /> : "signIn"}
+
+
                 </button>
             </form>
         </Form>

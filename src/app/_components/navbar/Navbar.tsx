@@ -4,11 +4,14 @@ import { ShoppingBag, Heart, Menu, X, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathName = usePathname()
+    const { data: session, status } = useSession()
+    console.log(session);
 
     return (
         <nav className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 capitalize">
@@ -47,8 +50,7 @@ export const Navbar = () => {
                 </section>
 
                 {/* auth Actions */}
-
-                {/* <section className="flex items-center gap-4">
+                {status == "authenticated" && <section className="flex items-center gap-4">
                     <Link href="/favorites">
                         <Heart className="h-5 w-5" />
                     </Link>
@@ -56,19 +58,20 @@ export const Navbar = () => {
                         <ShoppingBag className="h-5 w-5" />
                     </Link>
                     <User className="h-5 w-5" />
-                   
+
                     <Button
                         variant="ghost"
                         size="icon"
                         className="md:hidden cursor-pointer"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >   
+                    >
                         {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </Button>
-                </section> */}
+                </section>}
+
                 {/* unAuth action */}
-                <div>
-                    <div className="flex gap-3 flex-wrap">
+                {status == "unauthenticated" && <section>
+                    <section className="flex gap-3 flex-wrap">
                         {/* Login Button */}
                         <Link href="/login"
                             className="px-3 py-1 rounded-xl  text-black hover:text-gray-500  font-medium capitalize  transition-all duration-300  active:scale-94"
@@ -82,8 +85,9 @@ export const Navbar = () => {
                         >
                             register
                         </Link>
-                    </div>
-                </div>
+                    </section>
+                </section>}
+
             </section>
 
             {/* Mobile Menu */}

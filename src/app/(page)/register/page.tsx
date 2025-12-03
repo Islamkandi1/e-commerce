@@ -1,6 +1,12 @@
 import Regiter from '@/app/_components/authForm/register/Regiter'
+import { getMyToken } from '@/utilities/geyMyToken'
+import { redirect } from 'next/navigation'
 
-const page = () => {
+const page = async () => {
+    const token = await getMyToken()
+    if (token) {
+        redirect("/")
+    }
     return (
         <>
             <main className=" pt-12">
@@ -11,7 +17,7 @@ const page = () => {
                             <h2 className="text-4xl font-bold tracking-tight mb-2 capitalize">CREATE ACCOUNT</h2>
                             <p className="text-gray-500 text-sm tracking-wide">Join our exclusive fashion community</p>
                         </section>
-                        <Regiter/>
+                        <Regiter />
                     </section>
                 </section>
             </main>

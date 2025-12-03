@@ -1,9 +1,16 @@
+
 import Login from '@/app/_components/authForm/login/Login'
 import Oouth from '@/app/_components/Oouth/Oouth'
+import { getMyToken } from '@/utilities/geyMyToken'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
+  const token = await getMyToken()
+  if (token) {
+    redirect("/")
+  }
   return (
     <main className="pt-12">
       <section className="mx-2 md:mx-15 bg-white flex items-center justify-center">
@@ -15,19 +22,19 @@ const page = () => {
           </section>
 
           {/* Form */}
-          <Login/>
+          <Login />
 
 
 
 
 
-            {/* Login Link */}
-            <p className="text-center capitalize text-sm text-gray-600 flex items-center gap-2 justify-center">
-              don&apos;t have an account
-              <Link href="/register" className="text-black font-semibold underline hover:no-underline">
-                register
-              </Link>
-            </p>
+          {/* Login Link */}
+          <p className="text-center capitalize text-sm text-gray-600 flex items-center gap-2 justify-center">
+            don&apos;t have an account
+            <Link href="/register" className="text-black font-semibold underline hover:no-underline">
+              register
+            </Link>
+          </p>
 
 
           {/* sectionider */}
@@ -37,7 +44,7 @@ const page = () => {
             <section className="flex-1 h-px bg-gray-300"></section>
           </section>
 
-        <Oouth/>
+          <Oouth />
         </section>
       </section>
     </main>

@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import AddToCartBtn from '../addTocartBtn/AddToCartBtn';
 const ProductsDetails = ({ id }: { id: number }) => {
-    const { data, isLoading,isError ,error } = useQuery({
+    const { data, isLoading, isError, error } = useQuery({
         queryKey: ["productDetails", id],
         queryFn: () => getProductdetails(id)
     });
@@ -68,8 +68,17 @@ const ProductsDetails = ({ id }: { id: number }) => {
                                 </section>
                             </section>
 
-                            <section className=" space-x-4">
-                                    <AddToCartBtn width="w-full" rounded="rounded-full" text="add to cart"/>
+                            <section className=" space-x-2 flex items-center">
+                                <section className="relative flex items-center ">
+                                    <button type="button"  data-input-counter-decrement="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300">
+                                        <svg className="w-5 h-5 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" /></svg>
+                                    </button>
+                                    <input type="text" data-input-counter className="shrink-0 text-heading border-0 bg-transparent text-[1.1rem] font-normal focus:outline-none focus:ring-0 max-w-7 text-center"   value="1" />
+                                    <button type="button" data-input-counter-increment="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300">
+                                        <svg className="w-3 h-3 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" /></svg>
+                                    </button>
+                                </section>
+                                <AddToCartBtn width="grow" rounded="rounded-full" text="add to cart" />
                             </section>
                         </section>
                     </section>}

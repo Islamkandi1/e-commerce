@@ -3,7 +3,7 @@ import getProductdetails from '@/apis/getProductDetails'
 import ProductDetailsSkeleton from '@/loadings/ProductDetailsSkeleton';
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import AddToCartBtn from '../addTocartBtn/AddToCartBtn';
 const ProductsDetails = ({ id }: { id: number }) => {
@@ -11,7 +11,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
         queryKey: ["productDetails", id],
         queryFn: () => getProductdetails(id)
     });
-
+    const [count, setCount] = useState(1)
     //  push category==========================================================
 
     useEffect(() => {
@@ -26,8 +26,18 @@ const ProductsDetails = ({ id }: { id: number }) => {
     if (isError) {
         toast.error(error.message)
     }
-
-
+    // -------------------------------------------dec count--------------------------------------------------------
+    function dec() {
+        if (count == 0) {
+            setCount(0)
+        } else {
+            setCount((prev) => prev - 1)
+        }
+    }
+    //----------------------------------------- inc count--------------------------------------------
+    function inc() {
+        setCount((prev) => prev + 1)
+    }
     return (
         <main className='border-b border-gray-200'>
             <section className="min-h-screen bg-white pt-12">
@@ -70,15 +80,15 @@ const ProductsDetails = ({ id }: { id: number }) => {
 
                             <section className=" space-x-2 flex items-center">
                                 <section className="relative flex items-center ">
-                                    <button type="button"  data-input-counter-decrement="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300">
-                                        <svg className="w-5 h-5 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" /></svg>
+                                    <button type="button" onClick={dec} data-input-counter-decrement="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300">
+                                        <svg className="w-5 h-5 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14" /></svg>
                                     </button>
-                                    <input type="text" data-input-counter className="shrink-0 text-heading border-0 bg-transparent text-[1.1rem] font-normal focus:outline-none focus:ring-0 max-w-7 text-center"   value="1" />
-                                    <button type="button" data-input-counter-increment="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300">
-                                        <svg className="w-3 h-3 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" /></svg>
+                                    <p className="shrink-0 text-heading border-0 bg-transparent text-[1.1rem] font-normal focus:outline-none focus:ring-0 max-w-7 text-center mx-2"  >{count}</p>
+                                    <button type="button" onClick={inc} data-input-counter-increment="counter-input-2" className="flex items-center justify-center text-body bg-neutral-secondary-medium  bg-black text-white  hover:bg-neutral-tertiary-medium hover:text-heading   rounded-xl text-sm  h-10 w-10 cursor-pointer active:scale-[.9] trnsition-all duration-300 ">
+                                        <svg className="w-3 h-3 text-heading" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7 7V5" /></svg>
                                     </button>
                                 </section>
-                                <AddToCartBtn width="grow" rounded="rounded-full" text="add to cart" />
+                                <AddToCartBtn width="grow" rounded="rounded-full" text="add to cart" id={data?.id} count={count }  />
                             </section>
                         </section>
                     </section>}

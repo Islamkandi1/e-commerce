@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
+import AddToCartBtn from '../addTocartBtn/AddToCartBtn';
 const ProductsDetails = ({ id }: { id: number }) => {
     const { data, isLoading,isError ,error } = useQuery({
         queryKey: ["productDetails", id],
@@ -68,9 +69,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
                             </section>
 
                             <section className=" space-x-4">
-                                <button className="w-full bg-black text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 cursor-pointer">
-                                    Add to Cart
-                                </button>
+                                    <AddToCartBtn width="w-full" rounded="rounded-full" text="add to cart"/>
                             </section>
                         </section>
                     </section>}

@@ -36,7 +36,7 @@ const ProductDetailsSkeleton = () => {
                     </section>
 
                     <section className=" space-x-4">
-                        <Skeleton className="h-12 rounded-full w-full mb-3 bg-[#b3b0b1]" />
+                        <Skeleton className="h-10 rounded-full w-full mb-3 bg-[#b3b0b1]" />
                     </section>
                 </section>
             </section>

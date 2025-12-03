@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Heart } from 'lucide-react'
 import { product } from '@/types/product.type'
 import Link from 'next/link'
+import AddToCartBtn from '../addTocartBtn/AddToCartBtn'
 const ProductCard = ({ product }: { product: product }) => {
 
 
@@ -32,7 +33,7 @@ const ProductCard = ({ product }: { product: product }) => {
                     {/* actions & price */}
                     <section className='flex items-center justify-between'>
                         <h3 className='font-bold text-[1.3rem]'>${product.price}</h3>
-                        <button type='button' className='bg-black rounded-2xl hover:bg-[#353535] transition-all duration-300 cursor-pointer capitalize text-white px-5 py-2'>buy now</button>
+                        <AddToCartBtn rounded="rounded-2xl" width='w-fit' text="buy now"/>
                     </section>
                 </figcaption>
             </Link>

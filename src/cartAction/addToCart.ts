@@ -16,6 +16,8 @@ export async function AddToCart(data: product, count: number) {
     category: data.category,
     quantity: count,
     user_id: token,
+    image:data.image,
+    price:data.price
   });
   
   return {error};

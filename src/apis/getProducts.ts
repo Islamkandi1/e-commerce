@@ -1,3 +1,4 @@
+
 const getAllProducts = async () => {
   const searchParams = new URLSearchParams(window.location.search);
   const query = new URLSearchParams(searchParams).toString();

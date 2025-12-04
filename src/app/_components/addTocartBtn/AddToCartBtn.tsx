@@ -22,7 +22,7 @@ const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, roun
 
 
         if (res.error) {
-            toast.error("something went wrong")
+            toast.error("something went wrong" )
         } else {
             toast.success("product add successfully")
         }

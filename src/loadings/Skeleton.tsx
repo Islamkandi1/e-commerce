@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 export function SkeletonCard({width}:{width:string}) {
     return (
 
-        <div className={`flex flex-col space-y-3 ${width} shadow-2xl `}>
+        <div className={`flex flex-col space-y-3 ${width} shadow-2xl rounded-xl`}>
             <Skeleton className={`h-[300px] ${width} rounded-xl bg-[#b3b0b1]`} />
             <div className="space-y-2 p-5">
                 <Skeleton className="h-5 mb-4  bg-[#b3b0b1]" />

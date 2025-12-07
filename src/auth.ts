@@ -1,10 +1,10 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { supabaseServer } from "../supabase-server";
 import argon2 from "argon2";
-import { Account, Profile, Session, User } from "next-auth";
+import { Account, AuthOptions, Profile, Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
-export const authOption = {
+export const authOptions:AuthOptions  = {
   pages: {
     signIn: "/login",
   },
@@ -66,7 +66,7 @@ export const authOption = {
     }: {
       token: JWT;
       user?: User;
-      account: Account;
+      account: Account |null;
       profile?: Profile;
     }) {
       if (account && profile) {

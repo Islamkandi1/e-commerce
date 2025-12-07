@@ -52,9 +52,9 @@ const Filteration = () => {
         <>
             <Filter className={`absolute md:hidden z-10 top-[-30px] right-5 cursor-pointer ${showFilter && "hidden"}`} onClick={() => showAndHideFilter(true)} />
 
-            <section className={`shadow-2xl p-5 rounded-2xl md:h-fit fixed overflow-auto right-0 left-0 z-20 top-20 bottom-2   bg-white md:static ${!showFilter && "hidden"} md:block`}>
+            <section className={`shadow-2xl p-5 rounded-2xl md:h-fit fixed overflow-auto right-0 left-0 z-20 top-20 bottom-2   bg-white md:sticky ${!showFilter && "hidden"} md:block`}>
                 <X className='absolute z-10 top-2.5  right-5 cursor-pointer md:hidden' onClick={() => showAndHideFilter(false)} />
-                <section className="space-y-6 ">
+                <section className="space-y-6  ">
                     {/* Category */}
                     <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4">Category</h3>

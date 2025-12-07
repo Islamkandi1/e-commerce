@@ -6,7 +6,7 @@ const Products = () => {
 
     return (
         <>
-            <main className='py-10'>
+            <main className='py-10 px-1'>
                 <section className='mx-2 md:mx-15 pt-18 relative'>
                     {/* display data and filter */}
                     <section className='grid grid-cols-1 md:grid-cols-4 gap-9 relative'>

@@ -11,14 +11,14 @@ import men from "./../assets/images/men.png"
 import women from "./../assets/images/women.png"
 import gym from "./../assets/images/gym.png"
 import kids from "./../assets/images/kids.jpg"
-const NewArrivals = React.lazy(() => import("./_components/newArrivals/NewArrivals"));
+import NewArrivals from './_components/newArrivals/NewArrivals';
 
 const page = () => {
     return (
         <>
             {/* hero section */}
             <main className=' bg-[#F2F0F1] mb-10 relative top-16 md:static'>
-                <section className='mx-2 md:mx-15 pt-20 md:flex mn-h-screen justify-between items-center'>
+                <section className='mx-2 md:mx-15 pt-12 md:pt-20 md:flex mn-h-screen justify-between items-center'>
                     {/* content */}
                     <section className='content grow'>
                         {/* text */}
@@ -55,6 +55,7 @@ const page = () => {
                 </section>
                 <section className='bg-black '>
                     <section className=' flex flex-wrap justify-between items-center gap-5  mx-2 md:mx-15 py-8'>
+                        {/* <h3 className='text-3xl text-white capitalize'>versace</h3> add slide of my brands Api */}
                         <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
                         <Image className='w-[100px] md:w-[150px]' src={brand2} alt="zera" />
                         <Image className='w-[100px] md:w-[150px]' src={brand3} alt="gucci" />
@@ -70,7 +71,7 @@ const page = () => {
                     <h2 className='uppercase font-bold text-[2rem] md:text-[2.5rem] text-center mb-4'>BROWSE BY dress STYLE</h2>
                     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                         <section className='rounded-xl lg:col-span-2 overflow-hidden h-[200px] lg:h-[340px] relative'>
-                            <Image src={kids} alt="kids category" className='object-cover w-full h-full' />
+                            <Image src={kids}   alt="kids category" className='object-cover w-full h-full' />
                             <p className='absolute z-10 top-20 left-[100px] text-[2rem] lg:text-[3rem] capitalize font-bold'>kids</p>
                         </section>
 

@@ -40,7 +40,11 @@ export async function GET(req: Request) {
 
   const { data, count, error } = await query;
 
-  if (error) return NextResponse.json({ error });
+    if (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+    });
+  }
 
   return NextResponse.json({
     data,

@@ -5,7 +5,7 @@ export async function GET(
   _req: Request,
   { params }: { params: { name: string } }
 ) {
-  const { name } = await params;
+  const { name } =  params;
 
   const { data, error } = await supabaseServer
     .from("products")

@@ -8,8 +8,6 @@ import { Total } from "@/types/total.type";
 
 export default async function checkOut(cartData:Item[] |null, total:Total|undefined) {
   const session = await getServerSession(authOptions);
-  console.log("my session " + session?.user.firstName);
-  console.log("my cartData " + cartData);
 
   const token = await getMyToken();
 

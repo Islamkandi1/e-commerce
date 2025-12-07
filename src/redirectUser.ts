@@ -1,6 +1,8 @@
-import { redirect } from 'next/navigation';
-export const rediret = (token:string)=>{
-      if(!token){
-    redirect('/login')
+import { redirect } from "next/navigation";
+import { getMyToken } from "./utilities/geyMyToken";
+export const rediret = async () => {
+  const token = await getMyToken();
+  if (!token) {
+    redirect("/login");
   }
-}
+};

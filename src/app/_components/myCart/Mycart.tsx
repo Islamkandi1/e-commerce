@@ -9,6 +9,8 @@ import CartSkeleton from '@/loadings/cartSkeleton';
 import Order from '../order/Order';
 import getAllCart from '@/cartAction/getCard';
 const Mycart = () => {
+    
+ 
     // ------------------------cash data-----------------------------------------------------
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["cart"],

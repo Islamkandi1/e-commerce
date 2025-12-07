@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { Heart } from 'lucide-react'
 import { product } from '@/types/product.type'
 import Link from 'next/link'
 import AddToCartBtn from '../addTocartBtn/AddToCartBtn'
@@ -14,9 +13,6 @@ const ProductCard = ({ product }: { product: product }) => {
                 <Link href={`/productDetails/${product.id}`} >
                     <figure className='p-4 flex justify-center items-center bg-[#F3F0F1] relative'>
                         <Image width={500} height={500} src={product.image} alt={product.productName} className='h-[300px] object-cover' />
-                        <button type="button" className='absolute right-5 top-5 cursor-pointer hover:text-[#353535] transition-all duration-300'>
-                            <Heart className="h-6 w-6 " />
-                        </button>
                     </figure>
                     <figcaption className='p-5 pb-1'>
                         {/* description */}

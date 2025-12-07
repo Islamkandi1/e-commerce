@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { ShoppingBag, Heart, Menu, X, LogOut } from 'lucide-react';
+import { ShoppingBag, Menu, X, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -55,9 +55,6 @@ export const Navbar = () => {
                     {/* auth Actions */}
                     <section className="flex items-center gap-4">
                         {status == "authenticated" && <>
-                            <Link href="/favorites" className={`${pathName == "/favorites" && "text-gray-500"}`}>
-                                <Heart className="h-5 w-5" />
-                            </Link>
                             <Link href="/cart" className={`${pathName == "/cart" && "text-gray-500"} relative`}>
                                 <ShoppingBag className="h-5 w-5" />
                                 <span className="flex items-center absolute justify-center bg-neutral-primary-soft  text-heading text-xs font-medium h-4 w-4 rounded-full top-[-5] left-[-5px] bg-black text-white">

@@ -15,7 +15,7 @@ const Filteration = () => {
     const [showFilter, setShowFilter] = useState(false)
     // filter values=================================================
     const categories = ['men', 'women', 'kids'];
-    const brands = ['nike', 'adidas', 'puma', 'zara', 'h&m'];
+    const brands = ['nike', 'adidas', 'puma', 'zara', 'h&m',"prada","gucci","versace","armani","levis"];
     const dressStyle = ["shirts", "t-shirts", "hoodies", "sweetshirts", "shorts", "jackets", "Jeans"]
     // set filter=====================================================
     function filteration(e: React.ChangeEvent<HTMLInputElement>) {

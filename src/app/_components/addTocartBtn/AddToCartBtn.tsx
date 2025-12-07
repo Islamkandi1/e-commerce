@@ -9,6 +9,8 @@ import { ScaleLoader } from 'react-spinners';
 const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, rounded: string, text: string, id: number, count: number }) => {
     const [isLoading, serIsloading] = useState(false)
 
+
+
     async function buttonAction() {
         serIsloading(true)
         const data = await getProductdetails(id)

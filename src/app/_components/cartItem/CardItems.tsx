@@ -1,9 +1,18 @@
+"use client"
 import React from 'react'
 import { Minus, Plus, X } from 'lucide-react';
 import Image from 'next/image';
 import { Item } from '@/types/cart.type';
+import { deleteItem } from '@/cartAction/deleteItem';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 const CardItems = ({ item }: { item: Item }) => {
-    console.log(item);
+    // --------------------------------delete item-------------------------------------------
+    const queryClient = useQueryClient()
+
+
+
+
 
     return (
         <section className="bg-white rounded-lg p-4 md:p-6 border-2 border-black shadow-sm">
@@ -24,7 +33,7 @@ const CardItems = ({ item }: { item: Item }) => {
                     <section className="flex  justify-between items-start   mb-2">
                         <section>
                             <h3 className="font-semibold text-lg md:text-xl ">{item.productName}</h3>
-                            <p className="text-[#00000093]">{item.productDescription.split(" ",10).join(" ")}</p>
+                            <p className="text-[#00000093]">{item.productDescription.split(" ", 10).join(" ")}</p>
                         </section>
                         <button
                             className="text-red-500 hover:text-red-700 p-1"

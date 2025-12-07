@@ -11,7 +11,6 @@ export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathName = usePathname()
     const { status } = useSession()
-
     return (
         <nav className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 capitalize">
             <section className="mx-2 md:mx-15 flex py-3 items-center justify-between px-4">

@@ -11,7 +11,7 @@ export interface Item {
   brand: string;
   category: "men";
   created_at: string;
-  id: number | string;
+  id: string;
   productDescription: string;
   productName: string;
   quantity: number;

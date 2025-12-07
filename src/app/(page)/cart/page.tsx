@@ -2,14 +2,13 @@
 import Mycart from '@/app/_components/myCart/Mycart';
 import getAllCart from '@/cartAction/getCard';
 import { Res } from '@/types/cart.type';
-import { redirect } from 'next/navigation';
+
+import { rediret } from './../../../redirectUser';
 
 
 const Cart = async () => {
-  const res:Res = await getAllCart()
-  if(res.status === "not auth"){
-    redirect('/login')
-  }
+   const res: Res = await getAllCart()
+  rediret(res)
   return (
     <Mycart res={res}/>
   )

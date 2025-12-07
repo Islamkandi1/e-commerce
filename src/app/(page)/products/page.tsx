@@ -1,6 +1,7 @@
 
 import Filteration from '@/app/_components/filter/Filter'
 import ALlproduct from '@/app/_components/getAllProducts/ALlproduct'
+import { Suspense } from 'react'
 
 const Products = () => {
 
@@ -14,7 +15,9 @@ const Products = () => {
                         <Filteration />
                         {/* products */}
                         <section className='md:col-span-3'>
+                            <Suspense fallback={<div>Loading products...</div>}>
                             <ALlproduct />
+                            </Suspense>
                         </section>
                     </section>
                         

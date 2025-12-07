@@ -3,14 +3,14 @@ import { supabaseServer } from "../../../../../supabase-server";
 
 export async function GET(
   _req: Request,
-  { params }: { params: { id: number } }
+ context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
-
+  const { id } = await context.params;
+   const productId = Number(id);
   const { data, error } = await supabaseServer
     .from("products")
     .select("*")
-    .eq("id", id)
+    .eq("id", productId)
     .single();
 
   if (error) {

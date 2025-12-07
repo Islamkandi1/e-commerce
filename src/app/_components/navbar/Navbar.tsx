@@ -6,11 +6,17 @@ import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { ScaleLoader } from 'react-spinners';
 import { signOut } from "next-auth/react";
+import { useQuery } from '@tanstack/react-query';
+import getAllCart from '@/cartAction/getCard';
 
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathName = usePathname()
     const { status } = useSession()
+    const { data } = useQuery({
+        queryKey: ["cart"],
+        queryFn: () => getAllCart()
+    })
     return (
         <nav className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 capitalize">
             <section className="mx-2 md:mx-15 flex py-3 items-center justify-between px-4">
@@ -52,8 +58,11 @@ export const Navbar = () => {
                             <Link href="/favorites" className={`${pathName == "/favorites" && "text-gray-500"}`}>
                                 <Heart className="h-5 w-5" />
                             </Link>
-                            <Link href="/cart" className={`${pathName == "/cart" && "text-gray-500"}`}>
+                            <Link href="/cart" className={`${pathName == "/cart" && "text-gray-500"} relative`}>
                                 <ShoppingBag className="h-5 w-5" />
+                                <span className="flex items-center absolute justify-center bg-neutral-primary-soft  text-heading text-xs font-medium h-4 w-4 rounded-full top-[-5] left-[-5px] bg-black text-white">
+                                    <p>{data?.data?.length}</p>
+                                </span>
                             </Link>
                             <button onClick={() => signOut({ callbackUrl: "/login" })} type="button" className="flex items-center gap-3 cursor-pointer hover:text-red-500 transition-all hover:translate-x-2 duration-300">
                                 <LogOut className="w-5 h-5" />

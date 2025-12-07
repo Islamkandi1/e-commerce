@@ -1,0 +1,52 @@
+"use client"
+import React from 'react'
+import Image from 'next/image';
+import { Item } from '@/types/cart.type';
+import DeleteCartItem from '../deleteCartItem/DeleteCartItem';
+import UpdateCart from '../updateCart/UpdateCart';
+const CardItems = ({ item }: { item: Item }) => {
+
+
+
+
+
+
+
+    return (
+        <section className="bg-white rounded-lg p-4 md:p-6 border-2 border-black shadow-sm">
+            <section className="flex  flex-wrap gap-4">
+                {/* Product Image */}
+                <section className="w-24 h-24 md:w-32 md:h-32 shrink-0 bg-gray-100 rounded-lg overflow-hidden">
+                    <Image
+                        src={item.image}
+                        alt={item.productName}
+                        width={500}
+                        height={500}
+                        className="w-full h-full object-cover"
+                    />
+                </section>
+
+                {/* Product Details */}
+                <section className="flex-1 ">
+                    <section className="flex  justify-between items-start   mb-2">
+                        <section>
+                            <h3 className="font-semibold text-lg md:text-xl ">{item.productName}</h3>
+                            <p className="text-[#00000093]">{item.productDescription.split(" ", 10).join(" ")}</p>
+                        </section>
+                    <DeleteCartItem id={item.id}/>
+                    </section>
+
+
+                    <section className="flex items-center justify-between mt-4">
+                        <p className="text-xl md:text-2xl font-bold">${item.price}</p>
+
+                        {/* Quantity Controls */}
+                        <UpdateCart item={item} />
+                    </section>
+                </section>
+            </section>
+        </section>
+    )
+}
+
+export default CardItems

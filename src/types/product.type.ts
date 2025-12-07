@@ -1,3 +1,9 @@
+export interface ProductResponse {
+    data: product[];
+    error: string | null;
+    pageInfo: PageInfo;
+
+}
 export interface product {
   Colors: string;
   Quantity: number;

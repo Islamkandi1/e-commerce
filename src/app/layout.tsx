@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
-import { Navbar } from "./_components/navbar/Navbar";
-import TanstackProvider from "./_components/tanstackProvider/TanstackProvider";
 import { Toaster } from "react-hot-toast";
 import Footer from "./_components/footer/Footer";
+import Provider from "@/provider";
 
 
 
@@ -27,12 +26,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} `}
       >
-        <TanstackProvider>
+        
+          <Provider>
           <Toaster/>
-          <Navbar />
           {children}
           <Footer/>
-        </TanstackProvider>
+          </Provider>
       </body>
     </html>
   );

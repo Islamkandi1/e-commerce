@@ -1,11 +1,13 @@
 import { Item, Res } from '@/types/cart.type';
 import React from 'react'
+import CheckOut from '../checkOut/CheckOut';
+import { Total } from '@/types/total.type';
 
 const Order = ({ data }: { data: Res }) => {
     if (data?.data?.length === 0) return
 
 
-    const total =
+    const total:Total |undefined =
         data?.data?.reduce(
             (acc: Item, item: Item) => {
                 acc.quantity += item.quantity;
@@ -42,9 +44,7 @@ const Order = ({ data }: { data: Res }) => {
 
 
                     {/* Checkout Button */}
-                    <button className="w-full cursor-pointer bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-                        Go to Checkout →
-                    </button>
+                    <CheckOut total={total}/>
                 </section>
             </section>
 

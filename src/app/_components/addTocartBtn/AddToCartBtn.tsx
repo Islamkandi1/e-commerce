@@ -17,7 +17,7 @@ const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, roun
         if (res.status === "not auth") {
             toast.error("Please login first");
             setTimeout(() => redirect("/login"), 700);
-            return;
+            throw new Error("log in first")
         }
 
         if (res.error) {

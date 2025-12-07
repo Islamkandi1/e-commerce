@@ -12,7 +12,9 @@ import getAllCart from '@/cartAction/getCard';
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathName = usePathname()
-    const { status } = useSession()
+    const { status } = useSession({
+        required: false,
+    })
     const { data } = useQuery({
         queryKey: ["cart"],
         queryFn: () => getAllCart()

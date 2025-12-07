@@ -3,9 +3,9 @@ import { supabaseServer } from "../../../../../supabase-server";
 
 export async function GET(
   _req: Request,
-  { params }: { params: { name: string } }
+  context: { params: Promise<{ name: string }> }
 ) {
-  const { name } =  params;
+  const { name } = await  context.params;
 
   const { data, error } = await supabaseServer
     .from("products")

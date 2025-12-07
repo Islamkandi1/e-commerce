@@ -1,14 +1,12 @@
 "use client"
 import React from 'react'
-import { Minus, Plus, X } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import { Item } from '@/types/cart.type';
-import { deleteItem } from '@/cartAction/deleteItem';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
+import DeleteCartItem from '../deleteCartItem/DeleteCartItem';
 const CardItems = ({ item }: { item: Item }) => {
-    // --------------------------------delete item-------------------------------------------
-    const queryClient = useQueryClient()
+
+
 
 
 
@@ -35,11 +33,7 @@ const CardItems = ({ item }: { item: Item }) => {
                             <h3 className="font-semibold text-lg md:text-xl ">{item.productName}</h3>
                             <p className="text-[#00000093]">{item.productDescription.split(" ", 10).join(" ")}</p>
                         </section>
-                        <button
-                            className="text-red-500 hover:text-red-700 p-1"
-                        >
-                            <X className="w-5 h-5" />
-                        </button>
+                    <DeleteCartItem id={item.id}/>
                     </section>
 
 

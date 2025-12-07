@@ -3,15 +3,16 @@ import React from 'react'
 import { ShoppingBag } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import CardItems from '../cartItem/CardItems';
-import { Item, Res } from '@/types/cart.type';
+import { Item } from '@/types/cart.type';
 import toast from 'react-hot-toast';
 import CartSkeleton from '@/loadings/cartSkeleton';
 import Order from '../order/Order';
-const Mycart = ({ res }: { res: Res }) => {
+import getAllCart from '@/cartAction/getCard';
+const Mycart = () => {
     // ------------------------cash data-----------------------------------------------------
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["cart"],
-        queryFn: () => res
+        queryFn: () => getAllCart()
     })
     // -----------------------error-------------------------------------------------
     if (isError) {

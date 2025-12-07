@@ -1,12 +1,12 @@
 "use server"
 import { getMyToken } from "@/utilities/geyMyToken";
 import { supabaseServer } from "../../supabase-server";
+import { rediret } from "@/redirectUser";
 
 export default async function getAllCart() {
   const token = await getMyToken();
-  if (!token) {
-    return { status: "not auth" };
-  }
+
+     rediret(token as string)
   const { error, data } = await supabaseServer
     .from("cart")
     .select("*")

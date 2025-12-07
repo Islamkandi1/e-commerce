@@ -2,13 +2,13 @@
 import { supabaseServer } from "../../supabase-server"
 
 export const deleteItem = async (id:string) =>{
-    console.log(id);
+
     
-const {error} = await supabaseServer.from("cart").delete().eq("id",id)
+const {error,data} = await supabaseServer.from("cart").delete().eq("id",id).select("*")
 
 if(error){
     throw new Error("some thing went wron")
 }
 
-return true
+return data
 }

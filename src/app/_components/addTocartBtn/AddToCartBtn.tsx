@@ -36,6 +36,7 @@ const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, roun
             queryClient.invalidateQueries({
                 queryKey:["cart"]
             })
+            
         },
         onError:()=>{
             toast.error("some thing went wrong")

@@ -1,9 +1,9 @@
 "use client"
 import React from 'react'
-import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import { Item } from '@/types/cart.type';
 import DeleteCartItem from '../deleteCartItem/DeleteCartItem';
+import UpdateCart from '../updateCart/UpdateCart';
 const CardItems = ({ item }: { item: Item }) => {
 
 
@@ -41,20 +41,7 @@ const CardItems = ({ item }: { item: Item }) => {
                         <p className="text-xl md:text-2xl font-bold">${item.price}</p>
 
                         {/* Quantity Controls */}
-                        <section className="flex items-center gap-3 bg-gray-100 rounded-full px-3 py-2">
-                            <button
-
-                                className="hover:bg-gray-200 rounded-full p-1 transition-colors"
-                            >
-                                <Minus className="w-4 h-4" />
-                            </button>
-                            <span className="font-semibold w-8 text-center">{item.quantity}</span>
-                            <button
-                                className="hover:bg-gray-200 rounded-full p-1 transition-colors"
-                            >
-                                <Plus className="w-4 h-4" />
-                            </button>
-                        </section>
+                        <UpdateCart item={item} />
                     </section>
                 </section>
             </section>

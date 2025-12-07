@@ -15,7 +15,6 @@ const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, roun
         const data = await getProductdetails(id)
         const res = await AddToCart(data, count)
         if (res.status === "not auth") {
-            toast.error("Please login first");
             setTimeout(() => redirect("/login"), 700);
             throw new Error("log in first")
         }
@@ -38,8 +37,8 @@ const AddToCartBtn = ({ width, rounded, text, id, count }: { width: string, roun
             })
             
         },
-        onError:()=>{
-            toast.error("some thing went wrong")
+        onError:(error)=>{
+            toast.error(error.message)
         }
     })
     return (

@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic";
 import getBrands from '@/apis/getBrands'
 import getSubcategory from '@/apis/getSubCategory'
 import Filteration from '@/app/_components/filter/Filter'

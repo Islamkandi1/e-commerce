@@ -64,7 +64,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
 
                             <section className="border-t border-b border-gray-200 py-6 space-y-6">
                                 <section >
-                                    <h3 className="font-semibold mb-3">Select Colors</h3>
+                                    <h3 className="font-semibold mb-3">product Colors</h3>
                                     <section className="flex justify-between items-center space-x-3">
                                         <section className='flex gap-2'>
                                             {data?.Colors.split(",").map((color: string, idx: number) => (

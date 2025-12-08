@@ -9,6 +9,10 @@ const SetFilter = ({ showAndHideFilter, filter, showFilter }: { showAndHideFilte
         if (showFilter) {
             showAndHideFilter(false)
         }
+        scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
         const params = new URLSearchParams(window.location.search);
 
         // clear old values first

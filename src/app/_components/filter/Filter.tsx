@@ -3,7 +3,7 @@ import { Filter, X } from 'lucide-react'
 import React, { useState } from 'react'
 import SetFilter from '../setFilter/SetFilter'
 
-const Filteration = () => {
+const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}) => {
     const [filter, setFitler] = useState(
         {
             category: [],
@@ -13,10 +13,9 @@ const Filteration = () => {
         }
     )
     const [showFilter, setShowFilter] = useState(false)
+    
     // filter values=================================================
     const categories = ['men', 'women', 'kids'];
-    const brands = ['nike', 'adidas', 'puma', 'zara', 'h&m',"prada","gucci","versace","armani","levis"];
-    const dressStyle = ["shirts", "t-shirts", "hoodies", "sweetshirts", "shorts", "jackets", "Jeans"]
     // set filter=====================================================
     function filteration(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value, checked, type } = e.target;
@@ -95,7 +94,7 @@ const Filteration = () => {
                     <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4 capitalize">dress style</h3>
                         <section className="space-y-2">
-                            {dressStyle.map((dressStyle, idx) => (
+                            {subcategory.map((dressStyle, idx) => (
                                 <label key={idx} className="flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -135,4 +134,4 @@ const Filteration = () => {
     )
 }
 
-export default Filteration
+export default React.memo(Filteration)

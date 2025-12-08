@@ -72,7 +72,7 @@ export const Navbar = () => {
 
                     {/* unAuth action */}
                     {status == "unauthenticated" && <section>
-                        <section className="flex gap-3 flex-wrap">
+                        <section className="flex md:gap-3">
                             {/* Login Button */}
                             <Link href="/login"
                                 className={` px-3 py-1 rounded-xl  text-black hover:text-gray-500  font-medium capitalize  transition-all duration-300  active:scale-94 ${pathName == "/login" && "text-gray-500"}`}
@@ -114,28 +114,28 @@ export const Navbar = () => {
             <section className={`md:hidden ${isMobileMenuOpen ? "h-[180px] p-4" : "h-0"} transition-all duration-300 overflow-hidden border-t  bg-background animate-in slide-in-from-top-5`}>
                 <section className="flex flex-col gap-4">
                     <Link
-                        onClick={()=>setIsMobileMenuOpen(true)}
+                        onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         home
                     </Link>
                     <Link
-                        onClick={()=>setIsMobileMenuOpen(true)}
+                        onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/products"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         Product
                     </Link>
                     <Link
-                        onClick={()=>setIsMobileMenuOpen(true)}
+                        onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/brands"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         Brands
                     </Link>
                     <Link
-                        onClick={()=>setIsMobileMenuOpen(true)}
+                        onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/orders"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >

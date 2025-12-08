@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { ScaleLoader } from 'react-spinners';
 import { signOut } from "next-auth/react";
 import { useQuery } from '@tanstack/react-query';
-import { getAllCart } from '@/cartAction/getCard';
+import getAllCart from '@/cartAction/getCard';
 
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

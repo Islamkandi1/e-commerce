@@ -4,7 +4,11 @@ import getSubcategory from '@/apis/getSubCategory'
 import Filteration from '@/app/_components/filter/Filter'
 import ALlproduct from '@/app/_components/getAllProducts/ALlproduct'
 import { Suspense } from 'react'
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+    title: "Products",
+    description: "Browse our wide range of products",
+};
 const Products = async () => {
     const brands = await getBrands()
     const subcategory = await getSubcategory()
@@ -20,11 +24,11 @@ const Products = async () => {
                         {/* products */}
                         <section className='md:col-span-3'>
                             <Suspense>
-                            <ALlproduct />
+                                <ALlproduct />
                             </Suspense>
                         </section>
                     </section>
-                        
+
                 </section>
             </main>
         </>

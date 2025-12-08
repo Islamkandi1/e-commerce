@@ -3,11 +3,12 @@ import React from 'react'
 import CheckOut from '../checkOut/CheckOut';
 import { Total } from '@/types/total.type';
 
+
 const Order = ({ data }: { data: Res }) => {
     if (data?.data?.length === 0) return
 
 
-    const total:Total |undefined =
+    const total: Total | undefined =
         data?.data?.reduce(
             (acc: Item, item: Item) => {
                 acc.quantity += item.quantity;
@@ -44,7 +45,7 @@ const Order = ({ data }: { data: Res }) => {
 
 
                     {/* Checkout Button */}
-                    <CheckOut total={total}/>
+                    <CheckOut total={total} />
                 </section>
             </section>
 

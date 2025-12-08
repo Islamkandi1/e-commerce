@@ -1,6 +1,10 @@
 import { CheckCircle,   ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: "Confirm Order",
+  description: "Order confirmation page",
+};
 export default function OrderConfirmation() {
 
 

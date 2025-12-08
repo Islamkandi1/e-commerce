@@ -1,7 +1,11 @@
 import Regiter from '@/app/_components/authForm/register/Regiter'
 import { getMyToken } from '@/utilities/geyMyToken'
 import { redirect } from 'next/navigation'
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: "Register",
+  description: "Create a new account to join our fashion community",
+};
 const page = async () => {
     const token = await getMyToken()
     if (token) {

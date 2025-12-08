@@ -1,6 +1,10 @@
 import BrandProducts from '@/app/_components/brandProducts/BrandProducts';
 
-import React from 'react'
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: "products by brand",
+  description: "Browse products by brand",
+};
 
 const page = async ({ params }: { params: Promise<{ brandName: string }> }) => {
   const { brandName } = await params

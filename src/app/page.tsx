@@ -3,17 +3,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import img from "./../assets/images/hero.png"
 import star from "./../assets/images/star.png"
-import brand1 from "./../assets/images/brand1.png"
-import brand2 from "./../assets/images/brand2.png"
-import brand3 from "./../assets/images/brand3.png"
-import brand4 from "./../assets/images/brand4.png"
 import men from "./../assets/images/men.png"
 import women from "./../assets/images/women.png"
 import gym from "./../assets/images/gym.png"
 import kids from "./../assets/images/kids.jpg"
 import NewArrivals from './_components/newArrivals/NewArrivals';
-
-const page = () => {
+import AutoScrollSwiper from './_components/Swiper/Swiper';
+import getBrands from '@/apis/getBrands';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: "Home",
+  description: "clothes e-commerce homepage",
+};
+const page =async () => {   
+    const brands = await getBrands()
     return (
         <>
             {/* hero section */}
@@ -54,12 +57,12 @@ const page = () => {
                     </section>
                 </section>
                 <section className='bg-black '>
-                    <section className=' flex flex-wrap justify-between items-center gap-5  mx-2 md:mx-15 py-8'>
-                        {/* <h3 className='text-3xl text-white capitalize'>versace</h3> add slide of my brands Api */}
-                        <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
+                    <section className=' flex  justify-between items-center gap-5  py-8'>
+                        {/* <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
                         <Image className='w-[100px] md:w-[150px]' src={brand2} alt="zera" />
                         <Image className='w-[100px] md:w-[150px]' src={brand3} alt="gucci" />
-                        <Image className='w-[100px] md:w-[150px]' src={brand4} alt="prada" />
+                        <Image className='w-[100px] md:w-[150px]' src={brand4} alt="prada" /> */}
+                    <AutoScrollSwiper brands={brands}/>
                     </section>
                 </section>
             </main>

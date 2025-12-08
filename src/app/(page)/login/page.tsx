@@ -5,7 +5,11 @@ import { getMyToken } from '@/utilities/geyMyToken'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Login to your account",
+};
 const page = async () => {
   const token = await getMyToken()
   if (token) {

@@ -39,7 +39,7 @@ const ProductsDetails = ({ id }: { id: number }) => {
         setCount((prev) => prev + 1)
     }
     return (
-        <main className='border-b border-gray-200'>
+        <main className='border-b border-gray-200 pt-5'>
             <section className="min-h-screen bg-white pt-12">
                 {/* Product Section */}
                 <section className="mx-2 md:mx-15  px-4 sm:px-6 lg:px-8 pt-12 pb-5">
@@ -64,7 +64,6 @@ const ProductsDetails = ({ id }: { id: number }) => {
 
                             <section className="border-t border-b border-gray-200 py-6 space-y-6">
                                 <section >
-                                    <h3 className="font-semibold mb-3">product Colors</h3>
                                     <section className="flex justify-between items-center space-x-3">
                                         <section className='flex gap-2'>
                                             {data?.Colors.split(",").map((color: string, idx: number) => (

@@ -116,28 +116,28 @@ export const Navbar = () => {
                     <Link
                         onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/"
-                        className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
+                        className={`text-[.98rem] font-medium transition-colors hover:text-primary  ${pathName == "/" && "text-gray-500"} `}
                     >
                         home
                     </Link>
                     <Link
                         onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/products"
-                        className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
+                        className={`text-[.98rem] font-medium transition-colors hover:text-primary  ${pathName == "/products" && "text-gray-500"} `}
                     >
                         Product
                     </Link>
                     <Link
                         onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/brands"
-                        className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
+                        className={`text-[.98rem] font-medium transition-colors hover:text-primary  ${pathName == "/brands" && "text-gray-500"}`}
                     >
                         Brands
                     </Link>
                     <Link
                         onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                         href="/orders"
-                        className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
+                        className={`text-[.98rem] font-medium transition-colors hover:text-primary ${pathName == "/orders" && "text-gray-500"}`}
                     >
                         orders
                     </Link>

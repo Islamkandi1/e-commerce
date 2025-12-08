@@ -16,7 +16,7 @@ if(isError){
 }
     return (
         <main>
-            <section className='mx-2 md:mx-15 pt-12'>
+            <section className='mx-2 md:mx-15 pt-12 min-h-screen'>
                 <section className="  p-2 pt-12">
                     {/* Header */}
                     <section className=" mx-auto mb-12">
@@ -28,7 +28,7 @@ if(isError){
                         </p>
                     </section>
                     {/* Brands Grid */}
-                    <section className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <section className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-4">
                         {isLoading && <BrandsSkeleton />}
                         {data?.map((brand: string, idx: number) => (
                             <section

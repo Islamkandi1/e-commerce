@@ -21,7 +21,7 @@ const page =async () => {
         <>
             {/* hero section */}
             <main className=' bg-[#F2F0F1] mb-10 relative top-16 md:static'>
-                <section className='mx-2 md:mx-15 pt-12 md:pt-20 md:flex mn-h-screen justify-between items-center'>
+                <section className='mx-2 md:mx-15 pt-12 md:pt-20 md:flex min-h-screen justify-between items-center'>
                     {/* content */}
                     <section className='content grow'>
                         {/* text */}

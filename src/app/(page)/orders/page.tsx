@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Order = async () => {
     const { data } = await getAllOrder()
     if (data!.length < 1) {
-        return <main className="flex justify-center items-center md:h-screen overflow-hidden">
+        return <main className="flex justify-center items-center min-h-screen overflow-hidden">
             <figure className=" pt-12 md:w-[50%] ">
             <Image src={img} alt="no data to display" className="w-full pt-3 mx-auto" />
         </figure>

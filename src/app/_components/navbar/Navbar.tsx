@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { ScaleLoader } from 'react-spinners';
 import { signOut } from "next-auth/react";
 import { useQuery } from '@tanstack/react-query';
-import getAllCart from '@/cartAction/getCard';
+import { getAllCart } from '@/cartAction/getCard';
 
 export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -114,24 +114,28 @@ export const Navbar = () => {
             <section className={`md:hidden ${isMobileMenuOpen ? "h-[180px] p-4" : "h-0"} transition-all duration-300 overflow-hidden border-t  bg-background animate-in slide-in-from-top-5`}>
                 <section className="flex flex-col gap-4">
                     <Link
+                        onClick={()=>setIsMobileMenuOpen(true)}
                         href="/"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         home
                     </Link>
                     <Link
+                        onClick={()=>setIsMobileMenuOpen(true)}
                         href="/products"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         Product
                     </Link>
                     <Link
+                        onClick={()=>setIsMobileMenuOpen(true)}
                         href="/brands"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >
                         Brands
                     </Link>
                     <Link
+                        onClick={()=>setIsMobileMenuOpen(true)}
                         href="/orders"
                         className={`text-[.98rem] font-medium transition-colors hover:text-primary `}
                     >

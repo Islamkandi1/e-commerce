@@ -11,7 +11,7 @@ const page = async ({ params }: { params: Promise<{ brandName: string }> }) => {
 
   return (
     <main className='pt-12'>
-      <section className="mx-2 md:mx-15 pt-11 ">
+      <section className="mx-2 md:mx-15 pt-11 min-h-screen">
         <BrandProducts brandName={brandName} />
       </section>
     </main>

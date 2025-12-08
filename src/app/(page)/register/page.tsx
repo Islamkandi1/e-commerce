@@ -14,7 +14,7 @@ const page = async () => {
     return (
         <>
             <main className=" pt-12">
-                <section className=" mx-2 md:mx-15 bg-white flex items-center justify-center">
+                <section className=" mx-2 md:mx-15 bg-white flex items-center justify-center min-h-screen">
                     <section className="w-full md:w-[80%] lg:w-[70%] py-12">
                         {/* Header */}
                         <section className="text-center mb-8">

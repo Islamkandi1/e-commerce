@@ -1,9 +1,13 @@
 "use client"
 import { Filter, X } from 'lucide-react'
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import SetFilter from '../setFilter/SetFilter'
+import getBrands from '@/apis/getBrands'
+import getSubcategory from '@/apis/getSubCategory'
+import { useQuery } from '@tanstack/react-query'
+import FiterSkeleton from '@/loadings/FiterSkeleton'
 
-const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}) => {
+const Filteration = () => {
     const [filter, setFitler] = useState(
         {
             category: [],
@@ -13,7 +17,16 @@ const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}
         }
     )
     const [showFilter, setShowFilter] = useState(false)
-    
+    // ----------------------get brand-------------------------------------
+    const { data: brands, isLoading:brandLoading } = useQuery({
+        queryKey: ['brands'],
+        queryFn: getBrands,
+    })
+    // ----------------------get subcategory-------------------------------------
+    const { data: subcategory,isLoading:suCategoryLoading } = useQuery({
+        queryKey: ['subcategory'],
+        queryFn: getSubcategory,
+    })
     // filter values=================================================
     const categories = ['men', 'women', 'kids'];
     // set filter=====================================================
@@ -47,6 +60,9 @@ const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}
     function showAndHideFilter(boolean: boolean) {
         setShowFilter(boolean)
     }
+    if(suCategoryLoading || brandLoading){
+        return <FiterSkeleton/>
+    }
     return (
         <>
             <Filter className={`absolute md:hidden z-10 top-[-30px] right-5 cursor-pointer ${showFilter && "hidden"}`} onClick={() => showAndHideFilter(true)} />
@@ -76,7 +92,7 @@ const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}
                     <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4 capitalize">brands</h3>
                         <section className="space-y-2">
-                            {brands.map((brand, idx) => (
+                            {brands?.map((brand:string, idx:number) => (
                                 <label key={idx} className="flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -94,7 +110,7 @@ const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}
                     <section className="border-b border-gray-200 pb-6 capitalize">
                         <h3 className="text-lg font-bold mb-4 capitalize">dress style</h3>
                         <section className="space-y-2">
-                            {subcategory.map((dressStyle, idx) => (
+                            {subcategory?.map((dressStyle:string, idx:number) => (
                                 <label key={idx} className="flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -126,7 +142,7 @@ const Filteration = ({brands,subcategory}:{brands:string[],subcategory:string[]}
                         </section>
                     </section>
                     {/* Apply Filter Button */}
-                            <SetFilter showAndHideFilter={showAndHideFilter} filter={filter} showFilter={showFilter}/>
+                    <SetFilter showAndHideFilter={showAndHideFilter} filter={filter} showFilter={showFilter} />
                 </section>
             </section>
 

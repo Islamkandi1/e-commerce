@@ -45,9 +45,9 @@ const ProductsDetails = ({ id }: { id: number }) => {
                 <section className="mx-2 md:mx-15  px-4 sm:px-6 lg:px-8 pt-12 pb-5">
                     {isLoading ? <ProductDetailsSkeleton /> : <section className="grid   grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Image Gallery */}
-                        <section className=" gap-4 rounded-2xl bg-[#F2F0F1] p-3 overflow-hidden col-span-3 lg:col-span-1">
+                        <figure className=" gap-4 rounded-2xl border border-[#F2F0F1] overflow-hidden col-span-3 lg:col-span-1">
                             <Image width={500} height={500} priority={true} src={data?.image} alt={data?.productName} className='h-full object-cover w-full' />
-                        </section>
+                        </figure>
 
                         {/* Product Info */}
                         <section className="space-y-4 col-span-3 lg:col-span-2 ">

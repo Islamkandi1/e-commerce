@@ -11,8 +11,8 @@ const ProductCard = ({ product }: { product: product }) => {
         <>
             <section className='w-full rounded-2xl overflow-hidden shadow-2xl '>
                 <Link href={`/productDetails/${product.id}`} >
-                    <figure className='p-4 flex justify-center items-center bg-[#F3F0F1] relative'>
-                        <Image width={500} height={500} src={product.image} alt={product.productName} className='h-[300px] object-cover' />
+                    <figure className='  relative h-[300px]'>
+                        <Image width={400} height={300} src={product.image} alt={product.productName} className=' h-full object-cover' />
                     </figure>
                     <figcaption className='p-5 pb-1'>
                         {/* description */}

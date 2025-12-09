@@ -15,10 +15,11 @@ export async function GET(req: Request) {
   const dressStyle = searchParams.getAll("dressStyle"); // array
   const price = searchParams.get("price"); // single
   console.log(searchParams);
-  
+
   let query = supabaseServer
     .from("products")
     .select("*", { count: "exact" })
+    .order("created_at", { ascending: false })
     .range(from, to);
 
   // Apply filters
@@ -40,7 +41,7 @@ export async function GET(req: Request) {
 
   const { data, count, error } = await query;
 
-    if (error) {
+  if (error) {
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
     });

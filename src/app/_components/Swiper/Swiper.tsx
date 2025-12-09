@@ -20,7 +20,7 @@ export default function MarqueeCarousel({ brands = [], speed = 8 }: MarqueeProps
         }}
       >
         {repeatedBrands.map((brand, i) => (
-          <section key={i} className="brand-item shrink-0 w-48 flex items-center justify-center text-white text-2xl uppercase rounded-lg">
+          <section key={i} className="brand-item shrink-0 md:w-48 flex items-center justify-center text-white text-2xl uppercase rounded-lg">
             {brand}
           </section>
         ))}

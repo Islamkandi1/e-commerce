@@ -4,5 +4,7 @@ export const rediret = async () => {
   const token = await getMyToken();
   if (!token) {
     redirect("/login");
+  }else{
+    redirect("/");
   }
 };

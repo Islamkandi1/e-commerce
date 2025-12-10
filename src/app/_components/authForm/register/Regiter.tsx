@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { register } from '@/apis/register'
 import toast from 'react-hot-toast'
 import { ScaleLoader } from 'react-spinners'
+import { useRouter } from 'next/navigation'
 const Regiter = () => {
     const [isLoading, setIsLoading] = useState(false)
     const form = useForm<RegisterSchemaType>({
@@ -28,6 +29,7 @@ const Regiter = () => {
         resolver: zodResolver(registerSchema),
         mode: "onTouched"
     })
+  const router =   useRouter()
     // register============================================
     async function signup(values: RegisterSchemaType) {
         setIsLoading(true)
@@ -39,6 +41,7 @@ const Regiter = () => {
             }
             toast.success("register successfully")
             form.reset()
+            router.push("/login")
         } catch {
             toast.error("some thing went wrong")
         } finally {

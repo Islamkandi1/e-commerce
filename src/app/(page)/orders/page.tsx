@@ -10,7 +10,6 @@ const Order = async () => {
     return (
         <>
             <MyOrders  />
-
         </>
     )
 }

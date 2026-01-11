@@ -10,7 +10,6 @@ export default function MarqueeCarousel() {
   async function getAllBrands() {
     try {
       const brands = await getBrands()
-      console.log(brands);
       setBrands(brands)
 
     } catch (error ) {

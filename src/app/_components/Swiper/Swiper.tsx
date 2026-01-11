@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import getBrands from '@/apis/getBrands';
 import toast from "react-hot-toast";
-
+import Marquee from "react-fast-marquee";
 
 export default function MarqueeCarousel() {
   const [brands, setBrands] = useState<string[]>([]);
@@ -24,33 +24,19 @@ export default function MarqueeCarousel() {
     }
     getData();
   }, [])
-  const repeatedBrands = [...brands, ...brands];
 
   return (
-    <section className="marquee-container overflow-hidden w-full">
-      <section
-        className="marquee flex gap-10"
-        style={{
-          animation: `marqueeAnim 8s linear infinite`,
-        }}
-      >
-        {repeatedBrands.map((brand, i) => (
-          <section key={i} className="brand-item shrink-0 md:w-48 flex items-center justify-center text-white text-2xl uppercase rounded-lg">
+      <section className="w-full overflow-hidden">
+      <Marquee speed={100} gradient={false}>
+        {brands.map((brand, i) => (
+          <div
+            key={i}
+            className="mx-10 md:w-45 flex items-center justify-center text-white text-2xl uppercase"
+          >
             {brand}
-          </section>
+          </div>
         ))}
-      </section>
-
-      <style jsx>{`
-        @keyframes marqueeAnim {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
+      </Marquee>
     </section>
   );
 }

@@ -9,14 +9,12 @@ import gym from "./../assets/images/gym.png"
 import kids from "./../assets/images/kids.jpg"
 import NewArrivals from './_components/newArrivals/NewArrivals';
 import AutoScrollSwiper from './_components/Swiper/Swiper';
-import getBrands from '@/apis/getBrands';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Home",
   description: "clothes e-commerce homepage",
 };
 const page =async () => {   
-    const brands = await getBrands()
     return (
         <>
             {/* hero section */}
@@ -58,11 +56,7 @@ const page =async () => {
                 </section>
                 <section className='bg-black '>
                     <section className=' flex  justify-between items-center gap-5  py-8'>
-                        {/* <Image className='w-[100px] md:w-[150px]' src={brand1} alt="versace" />
-                        <Image className='w-[100px] md:w-[150px]' src={brand2} alt="zera" />
-                        <Image className='w-[100px] md:w-[150px]' src={brand3} alt="gucci" />
-                        <Image className='w-[100px] md:w-[150px]' src={brand4} alt="prada" /> */}
-                    <AutoScrollSwiper brands={brands}/>
+                    <AutoScrollSwiper/>
                     </section>
                 </section>
             </main>

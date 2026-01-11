@@ -1,14 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import getBrands from '@/apis/getBrands';
+import toast from "react-hot-toast";
 
-interface MarqueeProps {
-  brands?: string[];
-  speed?: number; // سرعة الحركة
-}
 
-export default function MarqueeCarousel({ brands = [], speed = 8 }: MarqueeProps) {
+export default function MarqueeCarousel() {
+  const [brands, setBrands] = useState<string[]>([]);
+  async function getAllBrands() {
+    try {
+      const brands = await getBrands()
+      console.log(brands);
+      setBrands(brands)
 
+    } catch (error ) {
+      const err = error as Error;
+      toast.error(err.message || "Something went wrong" );
+    }
+  }
+
+  useEffect(() => {
+    async function getData() {
+      await getAllBrands();
+    }
+    getData();
+  }, [])
   const repeatedBrands = [...brands, ...brands];
 
   return (
@@ -16,7 +32,7 @@ export default function MarqueeCarousel({ brands = [], speed = 8 }: MarqueeProps
       <section
         className="marquee flex gap-10"
         style={{
-          animation: `marqueeAnim ${speed}s linear infinite`,
+          animation: `marqueeAnim 8s linear infinite`,
         }}
       >
         {repeatedBrands.map((brand, i) => (
